@@ -230,7 +230,7 @@ aws ecr create-repository --repository-name k8s/kube-bench --image-tag-mutabilit
 ```
 git clone https://github.com/aquasecurity/kube-bench.git
 cd kube-bench
-aws ecr get-login-password --region <AWS_REGION> | docker login --username <AWS_USERNAME> --password-stdin <AWS_ACCT_NUMBER>.dkr.ecr.<AWS_REGION>.amazonaws.com
+aws ecr get-login-password --region <AWS_REGION> | docker login --username AWS --password-stdin <AWS_ACCT_NUMBER>.dkr.ecr.<AWS_REGION>.amazonaws.com
 docker build -t k8s/kube-bench .
 docker tag k8s/kube-bench:latest <AWS_ACCT_NUMBER>.dkr.ecr.<AWS_REGION>.amazonaws.com/k8s/kube-bench:latest
 docker push <AWS_ACCT_NUMBER>.dkr.ecr.<AWS_REGION>.amazonaws.com/k8s/kube-bench:latest
@@ -411,6 +411,7 @@ Finally, we can use the `make kind-run` target to run the current version of kub
 Every time you want to test a change, you'll need to rebuild the docker image and push it to cluster before running it again. ( `make build-docker kind-push kind-run` )
 
 ## Contributing
+Kindly read [Contributing.md](CONTRIBUTING.md) before contributing. Some instructions for the common contributions are stated below.
 
 ### Bugs
 
